@@ -8,4 +8,6 @@ This is my personal Nix/ NixOS configuration for my desktop PC with dual screens
 
 <img width="1919" height="1080" alt="image" src="https://github.com/user-attachments/assets/d52a0678-244f-4bba-82d2-ac11adea8fbc" />
 
+<img width="1919" height="1081" alt="image" src="https://github.com/user-attachments/assets/498d3d8f-cb71-4df2-bc0a-834eedbf9d07" />
+
 I use Hyprland as a window manager, Kitty as a terminal, Zsh as a shell with p10k, and Firefox as a web browser.
