@@ -6,7 +6,6 @@
       ./hardware-configuration.nix
     ];
 
-  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -28,7 +27,6 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  # X11 & SSDM + Hyprland
   services.xserver.enable = true;
   services.desktopManager.plasma6.enable = false;
   
@@ -56,10 +54,8 @@
   services.xserver.xkb.layout = "fr";
   console.keyMap = "fr";
 
-  # Impression
   services.printing.enable = true;
 
-  # Pipewire
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -69,7 +65,6 @@
     pulse.enable = true;
   };
 
-  # BLUETOOTH - À AJOUTER
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -82,7 +77,6 @@
 
   services.blueman.enable = true;
   
-  # Utilisateur
   users.users.cedev = {
     isNormalUser = true;
     description = "cedev";
@@ -90,18 +84,14 @@
     shell = pkgs.zsh;
   };
 
-  # Programmes système
   programs.zsh.enable = true;
   programs.hyprland.enable = true;
   programs.firefox.enable = true;
 
-  # Docker
   virtualisation.docker.enable = true;
 
-  # Autoriser les paquets non-libres
   nixpkgs.config.allowUnfree = true;
-
-  # Flakes
+  
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   fonts.packages = with pkgs; [

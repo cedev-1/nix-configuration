@@ -6,7 +6,6 @@
       ./hardware-configuration.nix
     ];
 
-  # Bootloader
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
@@ -29,7 +28,6 @@
     LC_TIME = "fr_FR.UTF-8";
   };  
 
-  # X11 & SSDM + Hyprland
   services.xserver.enable = true;
   services.displayManager.gdm.enable = false;
   services.desktopManager.gnome.enable = false;
@@ -58,10 +56,8 @@
   services.xserver.xkb.layout = "fr";
   console.keyMap = "fr";
 
-  # Impression
   services.printing.enable = true;
 
-  # Pipewire
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -71,7 +67,6 @@
     pulse.enable = true;
   };
 
-  # BLUETOOTH - À AJOUTER
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -88,7 +83,6 @@
     TERMINAL = "kitty";
   };
 
-  # Utilisateur
   users.users.cedev = {
     isNormalUser = true;
     description = "cedev";
@@ -96,29 +90,25 @@
     shell = pkgs.zsh;
   };
 
-  # Programmes système
   programs.zsh.enable = true;
   programs.hyprland.enable = true;
   programs.firefox.enable = true;
 
-  # Docker
   virtualisation.docker.enable = true;
 
-  # Autoriser les paquets non-libres
   nixpkgs.config.allowUnfree = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
-    modesetting.enable = true;     # nécessaire pour Wayland
+    modesetting.enable = true;
     powerManagement.enable = false;
-    open = false;                  # pilote propriétaire classique
-    nvidiaSettings = true;         # utilitaire nvidia-settings 
+    open = false;
+    nvidiaSettings = true;
   };
   
   boot.blacklistedKernelModules = [ "nouveau" ];
 
-  # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   fonts.packages = with pkgs; [
