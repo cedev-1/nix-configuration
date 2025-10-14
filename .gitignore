@@ -1,0 +1,18 @@
+# Fichiers temporaires et de cache
+result
+result-*
+.direnv/
+
+# Fichiers secrets (si vous en avez)
+secrets.nix
+*.key
+*.pem
+
+# Fichiers de sauvegarde
+*~
+*.bak
+*.swp
+*.tmp
+
+# Logs
+*.log
