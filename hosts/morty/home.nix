@@ -18,19 +18,7 @@
   programs.direnv = {
   enable = true;
   };
-
-  programs.zsh = {
-  enable = true;
-  autosuggestion.enable = true;
-  syntaxHighlighting.enable = true;
-  oh-my-zsh.enable = false;
-
-  initContent = ''
-      source /nix/store/*powerlevel10k*/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-    ''; 
-  };
-
+  
   home.sessionVariables = {
     TERMINAL = "kitty";
   };
@@ -46,39 +34,16 @@
     python314
     gcc    
     
-    opentofu
-    ansible
-    kubernetes-helm
-    kubectl
-    kind
-
-    tree
-    wget
-    btop
-    git
-    pavucontrol
-    bluetui
-
-    jellyfin-tui
+    nodejs_24    
     
-
-    ranger
     grim
     slurp
     wl-clipboard
     neofetch
     sway
     swaybg
-    wlogout
 
-    # TERMINAL
-    kitty
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    zsh-powerlevel10k
-    gh-copilot
-    gh
-    
+    gpu-screen-recorder-gtk    
     nix-direnv
     direnv
     
@@ -88,7 +53,6 @@
     vscode
     bruno
     discord
-    vivaldi
     nextcloud-client
     rustdesk
   ];

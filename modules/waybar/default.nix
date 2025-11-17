@@ -9,6 +9,11 @@
   };
 
   config = {
+    home.packages = with pkgs; [
+      wlogout
+      pavucontrol
+    ];
+
     programs.waybar = {
       enable = true;
       systemd = {

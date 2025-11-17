@@ -11,14 +11,19 @@ in {
         enable = lib.mkEnableOption "Enable Ranger file manager";
     };
 
-    config = lib.mkIf config.ranger.enable {
-        home.file.".config/ranger/rc.conf".source = rangerConfig.rcConf;
-        home.file.".config/ranger/rifle.conf".source = rangerConfig.rifleConf;
-        
- 	home.packages = with pkgs; [
-	  ranger
-	  ffmpegthumbnailer
-   	  poppler-utils
-        ];
-  };
+    config = lib.mkMerge [
+        {
+            ranger.enable = true;
+        }
+        (lib.mkIf config.ranger.enable {
+            home.file.".config/ranger/rc.conf".source = rangerConfig.rcConf;
+            home.file.".config/ranger/rifle.conf".source = rangerConfig.rifleConf;
+            
+            home.packages = with pkgs; [
+                ranger
+                ffmpegthumbnailer
+                poppler-utils
+            ];
+        })
+    ];
 }

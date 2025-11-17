@@ -1,7 +1,7 @@
 { lib, config, pkgs, ... }:
 
 {
-  config.programs.kitty = {
+  programs.kitty = {
     enable = true;
     font.name = "JetBrainsMono Nerd Font";
     font.size = 11;
@@ -56,4 +56,38 @@
       color15 = "#F0AAC1";
     };
   };
+
+  programs.zsh = {
+    enable = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    oh-my-zsh.enable = false;
+
+    initContent = ''
+        source /nix/store/*powerlevel10k*/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+        [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+      '';
+  };
+
+  home.packages = with pkgs; [
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    zsh-powerlevel10k
+
+    tree
+    wget
+    btop
+    git
+    bat
+
+    ncdu
+
+    opentofu
+    kubernetes-helm
+    kubectl
+    kind
+    k9s
+
+    jellyfin-tui
+  ];
 }

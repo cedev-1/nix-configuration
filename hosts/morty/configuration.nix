@@ -13,6 +13,14 @@
   networking.hostName = "cedev-nixos";
   networking.networkmanager.enable = true;
 
+  networking.extraHosts = ''
+    10.0.8.10   argocd.local
+  '';
+
+  virtualisation.docker.daemon.settings = {
+    insecure-registries = [ "registry.local" ];
+  };
+
   time.timeZone = "Europe/Paris";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -30,7 +38,7 @@
 
   services.xserver.enable = true;
   services.displayManager.gdm.enable = false;
-  services.desktopManager.gnome.enable = false;
+  services.desktopManager.gnome.enable = false;  
   
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.displayManager.lightdm.background = ../../modules/backgrounds/wall.png;
@@ -97,7 +105,8 @@
   virtualisation.docker.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-
+  
+  programs.gpu-screen-recorder.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {

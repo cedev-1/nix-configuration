@@ -15,13 +15,14 @@ bind = $mainMod, E, exec, $fileManager
 bind = $mainMod, V, togglefloating,
 bind = $mainMod, R, exec, $menu
 bind = $mainMod, P, pseudo, # dwindle
-bind = $mainMod, J, togglesplit, # dwindle
+bind = $mainMod, O, togglesplit, # dwindle
 
 bind = , Print, exec, grim -g "$(slurp -d)" - | wl-copy
 bind = SUPER, T, exec, kitty -e btop
 bind = SUPER, F, exec, firefox
 bind = SUPER, G, exec, code
 bind = SUPER, J, exec, kitty -e jellyfin-tui
+bind = SUPER, K, exec, kitty -e k9s
 
 # Move focus with mainMod + arrow keys
 bind = $mainMod, left, movefocus, l
