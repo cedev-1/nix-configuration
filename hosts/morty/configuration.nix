@@ -12,6 +12,21 @@
 
   networking.hostName = "cedev-nixos";
   networking.networkmanager.enable = true;
+  networking.useDHCP = false;
+  networking.interfaces.eno1 = {
+    ipv4.addresses = [
+      {
+        address = "10.0.20.26";
+        prefixLength = 24;
+      }
+    ];
+  };
+
+  networking.defaultGateway = "10.0.20.254";
+
+  networking.nameservers = [
+    "192.168.0.115"
+  ];
 
   networking.extraHosts = ''
     10.0.8.10   argocd.local
@@ -94,7 +109,7 @@
   users.users.cedev = {
     isNormalUser = true;
     description = "cedev";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "dialout" "uucp" ];
     shell = pkgs.zsh;
   };
 
