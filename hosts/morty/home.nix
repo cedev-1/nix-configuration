@@ -15,6 +15,17 @@
     userEmail = "cedevserver@gmail.com";
   };
 
+  programs.btop = {
+    enable = true;
+    settings = {
+      color_theme = "matcha-dark-sea";
+      theme_background = false;
+      truecolor = true;
+    };
+  };
+ 
+  xdg.configFile."btop/btop.conf".force = true;
+
   programs.direnv = {
   enable = true;
   };
