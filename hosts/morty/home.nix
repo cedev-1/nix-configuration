@@ -18,7 +18,8 @@
   programs.btop = {
     enable = true;
     settings = {
-      color_theme = "matcha-dark-sea";
+      # color_theme = "matcha-dark-sea";
+      color_theme = "TTY";
       theme_background = false;
       truecolor = true;
     };
@@ -43,14 +44,11 @@
   home.packages = with pkgs; [
     # LANGUAGES / PACKAGES
     python314
-    gcc    
-    
-    nodejs_24    
-    
+    gcc
+        
     grim
     slurp
     wl-clipboard
-    neofetch
     sway
     swaybg
 
@@ -60,7 +58,6 @@
     
     # APP
     google-chrome
-    code-cursor
     vscode
     bruno
     discord
