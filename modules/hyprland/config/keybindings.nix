@@ -8,6 +8,7 @@ $terminal = kitty
 # $fileManager = kitty -e ranger
 $fileManager = kitty -e ranger
 $menu = rofi -show drun
+$ide = zeditor
 
 bind = $mainMod, Q, exec, $terminal
 bind = $mainMod, C, killactive,
@@ -17,6 +18,7 @@ bind = $mainMod, V, togglefloating,
 bind = $mainMod, R, exec, $menu
 bind = $mainMod, P, pseudo, # dwindle
 bind = $mainMod, O, togglesplit, # dwindle
+bind = $mainMod, Z, exec, $ide
 
 bind = , Print, exec, grim -g "$(slurp -d)" - | wl-copy
 bind = SUPER, T, exec, kitty -e btop
