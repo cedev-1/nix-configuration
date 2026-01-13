@@ -71,6 +71,7 @@
   ../../modules/ranger/default.nix
   ../../modules/kitty/default.nix
   ../../modules/rofi/default.nix
+  ../../modules/zed/default.nix
   ];
 
   hyprland.isDualMonitor = true;
