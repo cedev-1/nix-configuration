@@ -11,6 +11,8 @@
       confirm_os_window_close = 0;
       allow_remote_control = "yes";
 
+      # cursor_trail = 3;
+
       foreground = "#FFFFFF";
       background = "#2F364A";
       selection_foreground = "#2F364A";

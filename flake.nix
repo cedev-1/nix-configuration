@@ -11,9 +11,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    opencode.url = "github:cedev-1/opencode-nix/update-to-1.1.14";
   };
 
-  outputs = { nixpkgs, home-manager, ... }: {    
+  outputs = { nixpkgs, home-manager, opencode, ... }: {
     nixosConfigurations = {
       cedev-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -21,6 +23,7 @@
           ./hosts/morty/configuration.nix
           home-manager.nixosModules.home-manager
           {
+            nixpkgs.overlays = [ opencode.overlays.default ];
             home-manager.users.cedev = import ./hosts/morty/home.nix;
           }
         ];

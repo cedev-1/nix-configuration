@@ -4,7 +4,7 @@
   home.username = "cedev";
   home.homeDirectory = "/home/cedev";
   home.stateVersion = "25.05";
- 
+
   nixpkgs.config.allowUnfree = true;
 
   home.file.".p10k.zsh".source = ../../dotfiles/p10k.zsh;
@@ -24,19 +24,19 @@
       truecolor = true;
     };
   };
- 
+
   xdg.configFile."btop/btop.conf".force = true;
 
   programs.direnv = {
   enable = true;
   };
-  
+
   home.sessionVariables = {
     TERMINAL = "kitty";
   };
 
   gtk.enable = true;
-  
+
   gtk.gtk3.theme = {
     name = "Adwaita-dark";
   };
@@ -45,17 +45,19 @@
     # LANGUAGES / PACKAGES
     python314
     gcc
-        
+    jq
+    openssl
+
     grim
     slurp
     wl-clipboard
     sway
     swaybg
 
-    gpu-screen-recorder-gtk    
+    gpu-screen-recorder-gtk
     nix-direnv
     direnv
-    
+
     # APP
     google-chrome
     vscode
@@ -63,6 +65,7 @@
     discord
     nextcloud-client
     rustdesk
+    opencode
   ];
 
   imports = [
