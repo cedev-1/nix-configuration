@@ -26,6 +26,7 @@ bind = SUPER, F, exec, firefox
 bind = SUPER, G, exec, code
 bind = SUPER, J, exec, kitty -e jellyfin-tui
 bind = SUPER, K, exec, kitty -e k9s
+bind = SUPER, U, exec, kitty opencode
 
 bind = $mainMod, left, movefocus, l
 bind = $mainMod, right, movefocus, r
