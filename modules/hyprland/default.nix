@@ -4,6 +4,7 @@ let
   keybindings = import ./config/keybindings.nix;
   animations = import ./config/animations.nix;
   autostart = import ./config/autostart.nix;
+  windowrules = import ./config/windowrules.nix;
 in {
   options.hyprland = {
     isDualMonitor = lib.mkOption {
@@ -20,6 +21,7 @@ in {
   ${keybindings}
   ${animations}
   ${autostart}
+  ${windowrules}
 
   '';
   };
