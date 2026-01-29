@@ -94,6 +94,8 @@
     wget
     btop
     git
+    sops    
+    age
 
     bat
     eza
