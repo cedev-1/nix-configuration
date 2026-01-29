@@ -11,8 +11,10 @@
 
   programs.git = {
     enable = true;
-    userName = "cedev-1";
-    userEmail = "cedevserver@gmail.com";
+    settings = {
+      user.name = "cedev-1";
+      user.email = "cedevserver@gmail.com";
+    };
   };
 
   programs.btop = {
@@ -75,6 +77,7 @@
   ../../modules/kitty/default.nix
   ../../modules/rofi/default.nix
   ../../modules/zed/default.nix
+  ../../modules/zsh/default.nix
   ];
 
   hyprland.isDualMonitor = true;

@@ -11,24 +11,14 @@
 
   programs.git = {
     enable = true;
-    userName = "cedev-1";
-    userEmail = "cedevserver@gmail.com";
+    settings = {
+      user.name = "cedev-1";
+      user.email = "cedevserver@gmail.com";
+    };
   };
 
   programs.direnv = {
   enable = true;
-  };
-
-  programs.zsh = {
-  enable = true;
-  autosuggestion.enable = true;
-  syntaxHighlighting.enable = true;
-  oh-my-zsh.enable = false;
-
-  initContent = ''
-      source /nix/store/*powerlevel10k*/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-    ''; 
   };
 
   home.sessionVariables = {
@@ -53,15 +43,10 @@
     kind
 
     tree
-    wget
-    btop
-    git
     pavucontrol
     bluetui
 
-    jellyfin-tui
-    
- 
+    # File manager and utilities
     ranger
     grim
     slurp
@@ -73,10 +58,7 @@
 
     # TERMINAL
     kitty
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    zsh-powerlevel10k
-    gh-copilot
+    github-copilot-cli
     gh
     
     nix-direnv
@@ -98,6 +80,7 @@
   ../../modules/ranger/default.nix
   ../../modules/kitty/default.nix
   ../../modules/rofi/default.nix
+  ../../modules/zsh/default.nix
   ];
 
   hyprland.isDualMonitor = false;
