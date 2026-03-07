@@ -61,7 +61,7 @@ input {
     kb_layout = fr
     follow_mouse = 1
     sensitivity = 0
-    ${if isLaptop then "touchpad {\n        natural_scroll = true\n        disable_while_typing = true\n        tap-to-click = true\n        accel_profile = flat\n    }" else ""}
+    ${if isLaptop then "touchpad {\n        natural_scroll = true\n        disable_while_typing = true\n        tap-to-click = true\n    }" else ""}
 }
 
 cursor {
