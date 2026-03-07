@@ -14,7 +14,6 @@
     ../../modules/hyprland/default.nix
     ../../modules/ranger/default.nix
     ../../modules/kitty/default.nix
-    ../../modules/rofi/default.nix
     ../../modules/zsh/default.nix
   ];
 
@@ -29,14 +28,14 @@
       general.battery.warnLevels = [
         {
           level = 20;
-          title = "Batterie Faible";
-          message = "Pense à brancher Thorfinn !";
+          title = "Low Battery";
+          message = "Plug in your laptop!";
           icon = "battery_android_frame_2";
         }
         {
           level = 5;
-          title = "Niveau Critique";
-          message = "BRANCHE LE CHARGEUR MAINTENANT !!";
+          title = "Critical Battery";
+          message = "PLUG IN NOW!!";
           icon = "battery_android_alert";
           critical = true;
         }
@@ -61,7 +60,7 @@
   };
 
   programs.direnv = {
-  enable = true;
+    enable = true;
   };
 
   home.sessionVariables = {
@@ -75,21 +74,16 @@
   };
 
   home.packages = with pkgs; [
-    # LANGUAGES / PACKAGES
     python314
     gcc    
-    
     opentofu
     ansible
     kubernetes-helm
     kubectl
     kind
-
     tree
     pavucontrol
     bluetui
-
-    # File manager and utilities
     ranger
     thunar
     grim
@@ -97,18 +91,12 @@
     wl-clipboard
     neofetch
     sway
-    swaybg
     wlogout
-
-    # TERMINAL
     kitty
     github-copilot-cli
     gh
-    
     nix-direnv
     direnv
-    
-    # APP
     google-chrome
     code-cursor
     vscode
@@ -118,5 +106,6 @@
     nextcloud-client
   ];
 
+  hyprland.isLaptop = true;
   hyprland.isDualMonitor = false;
 }

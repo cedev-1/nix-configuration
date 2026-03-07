@@ -53,6 +53,7 @@
     brightnessctl
     playerctl
     pamixer
+    libinput
   ];
 
   services.xserver.xkb.layout = "fr";
@@ -90,6 +91,7 @@
 
   programs.zsh.enable = true;
   programs.hyprland.enable = true;
+
   programs.firefox.enable = true;
 
   virtualisation.docker.enable = true;

@@ -1,9 +1,13 @@
+{ config }:
+let
+  isLaptop = config.hyprland.isLaptop or false;
+in
 ''
 #################
 ### AUTOSTART ###
 #################
-exec-once = kitty
-exec-once = swaybg -i /home/cedev/Pictures/wall.png -m fill
+${if isLaptop then "exec-once = caelestia shell" else "exec-once = kitty"}
+${if !isLaptop then "exec-once = swaybg -i /home/cedev/Pictures/wall.png -m fill" else ""}
 
 #############################
 ### ENVIRONMENT VARIABLES ###
@@ -15,11 +19,11 @@ env = XDG_CURRENT_DESKTOP,Hyprland
 env = XCURSOR_SIZE,24
 env = HYPRCURSOR_SIZE,24
 
-exec-once = bash -lc 'for i in {1..50}; do \
+${if !isLaptop then ''exec-once = bash -lc 'for i in {1..50}; do \
   [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && \
   [ -S "/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock" ] && break; \
   sleep 0.1; \
-done; waybar'
+done; waybar'' else ""}
 
 #####################
 ### LOOK AND FEEL ###
@@ -27,56 +31,11 @@ done; waybar'
 general {
     gaps_in = 5
     gaps_out = 10
-
     border_size = 1
-
-    # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
     col.active_border = rgba(ffffffff)
     col.inactive_border = rgba(ffffffff)
-
-    # Set to true enable resizing windows by clicking and dragging on borders and gaps
     resize_on_border = true
-
-    # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
     allow_tearing = false
-
-    layout = dwindle
-}
-
-dwindle {
-    pseudotile = true
-    preserve_split = true
-    force_split = 2
-}
-
-master {
-    new_status = master
-}
-
-misc {
-    force_default_wallpaper = 0
-    disable_hyprland_logo = true
-}
-
-#####################
-### LOOK AND FEEL ###
-#####################
-general {
-    gaps_in = 5
-    gaps_out = 15
-
-    border_size = 1
-
-    # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
-    col.active_border = rgba(ffffffff)
-    col.inactive_border = rgba(ffffffff)
-
-    # Set to true enable resizing windows by clicking and dragging on borders and gaps
-    resize_on_border = true
-
-    # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
-    allow_tearing = false
-
     layout = dwindle
 }
 
@@ -100,18 +59,9 @@ misc {
 #############
 input {
     kb_layout = fr
-    kb_variant =
-    kb_model =
-    kb_options =
-    kb_rules =
-
     follow_mouse = 1
-
     sensitivity = 0
-
-    #touchpad {
-    #    natural_scroll = false
-    #}
+    ${if isLaptop then "touchpad {\n        natural_scroll = true\n        disable_while_typing = true\n    }" else ""}
 }
 
 device {
