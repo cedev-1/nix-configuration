@@ -7,6 +7,8 @@
  
   nixpkgs.config.allowUnfree = true;
 
+  home.file.".p10k.zsh".source = ../../dotfiles/p10k.zsh;
+
   imports = [
     caelestia-shell.homeManagerModules.default
     ../../modules/hyprland/default.nix
