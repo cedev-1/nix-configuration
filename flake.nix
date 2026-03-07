@@ -13,9 +13,14 @@
     };
 
     opencode.url = "github:cedev-1/opencode-nix/update-to-1.1.14";
+
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, opencode, ... }: {
+  outputs = { nixpkgs, home-manager, opencode, caelestia-shell, ... }: {
     nixosConfigurations = {
       cedev-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -34,6 +39,7 @@
           ./hosts/thorfinn/configuration.nix
           home-manager.nixosModules.home-manager
           {
+            home-manager.extraSpecialArgs = { inherit caelestia-shell; };
             home-manager.users.cedev = import ./hosts/thorfinn/home.nix;
           }
         ];

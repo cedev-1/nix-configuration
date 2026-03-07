@@ -49,6 +49,10 @@
     qt6.qt5compat
     qt6.qtwayland
     qt6.qtquick3d
+
+    brightnessctl
+    playerctl
+    pamixer
   ];
 
   services.xserver.xkb.layout = "fr";
