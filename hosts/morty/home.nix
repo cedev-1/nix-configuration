@@ -61,6 +61,7 @@
     direnv
 
     # APP
+    obsidian
     google-chrome
     vscode
     bruno
