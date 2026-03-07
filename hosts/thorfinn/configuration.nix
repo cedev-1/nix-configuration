@@ -56,6 +56,11 @@
     libinput
   ];
 
+  services.libinput = {
+    enable = true;
+    touchpad.enable = true;
+  };
+
   services.xserver.xkb.layout = "fr";
   console.keyMap = "fr";
 
@@ -85,7 +90,7 @@
   users.users.cedev = {
     isNormalUser = true;
     description = "cedev";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "input" ];
     shell = pkgs.zsh;
   };
 

@@ -59,14 +59,10 @@ misc {
 #############
 input {
     kb_layout = fr
+    kb_variant = 
     follow_mouse = 1
     sensitivity = 0
-    ${if isLaptop then "touchpad {\n        natural_scroll = true\n        disable_while_typing = true\n    }" else ""}
-}
-
-device {
-    name = epic-mouse-v1
-    sensitivity = -0.5
+    ${if isLaptop then "touchpad {\n        natural_scroll = true\n        disable_while_typing = true\n        tap-to-click = true\n    }" else ""}
 }
 
 cursor {
