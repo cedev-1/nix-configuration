@@ -99,17 +99,14 @@
     sway
     wlogout
     kitty
-    github-copilot-cli
-    gh
     nix-direnv
     direnv
-    google-chrome
-    code-cursor
     vscode
     bruno
     discord
     vivaldi
     nextcloud-client
+    opencode
   ];
 
   hyprland.isLaptop = true;
