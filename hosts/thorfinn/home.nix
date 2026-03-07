@@ -24,6 +24,12 @@
     settings = {
       bar.status.showBattery = true;
       bar.status.showWifi = true;
+
+      background.desktopClock = {
+        enabled = true;
+        position = "bottom-right";
+        scale = 1.0;
+      };
       
       general.battery.warnLevels = [
         {
