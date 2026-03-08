@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    clevo-xsm-wmi.url = "github:Culturae-org/clevo-xsm-wmi-nix";
+    clevo-xsm-wmi.url = "github:cedev-1/clevo-xsm-wmi-nix";
   };
 
   outputs = { nixpkgs, home-manager, opencode, caelestia-shell, clevo-xsm-wmi, ... }: {

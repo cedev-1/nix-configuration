@@ -53,13 +53,13 @@
       "locked": {
         "lastModified": 1772929555,
         "narHash": "sha256-9+kHBPsToS0L/JwLeEul15KQOlgDn4WrMNiyFamP/B4=",
-        "owner": "Culturae-org",
+        "owner": "cedev-1",
         "repo": "clevo-xsm-wmi-nix",
         "rev": "a4bc0f6b10ae802ab7249d5bed418857ae291d72",
         "type": "github"
       },
       "original": {
-        "owner": "Culturae-org",
+        "owner": "cedev-1",
         "repo": "clevo-xsm-wmi-nix",
         "type": "github"
       }
