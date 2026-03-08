@@ -26,9 +26,8 @@ workspace = 10, monitor:HDMI-A-2
 windowrule = suppress_event maximize, match:class .*
 windowrule = no_initial_focus on, match:class ^$, match:title ^$, match:xwayland 1, match:float 1, match:fullscreen 0, match:pin 0
 
-windowrulev2 = float,class:^(org.pulseaudio.pavucontrol|blueman-manager|nm-connection-editor)$
-windowrulev2 = size 1200 800,class:^(org.pulseaudio.pavucontrol|blueman-manager|nm-connection-editor)$
-windowrulev2 = center,class:^(org.pulseaudio.pavucontrol|blueman-manager|nm-connection-editor)$
+windowrule = float on, match:class ^(org.pulseaudio.pavucontrol|blueman-manager|nm-connection-editor)$
+windowrule = size 1200 800, match:class ^(org.pulseaudio.pavucontrol|blueman-manager|nm-connection-editor)$
 
 '' else ''
 ################
@@ -43,8 +42,7 @@ monitor=,preferred,auto,1
 windowrule = suppress_event maximize, match:class .*
 windowrule = no_initial_focus on, match:class ^$, match:title ^$, match:xwayland 1, match:float 1, match:fullscreen 0, match:pin 0
 
-windowrulev2 = float,class:^(org.pulseaudio.pavucontrol|blueman-manager|nm-connection-editor)$
-windowrulev2 = size 1200 800,class:^(org.pulseaudio.pavucontrol|blueman-manager|nm-connection-editor)$
-windowrulev2 = center,class:^(org.pulseaudio.pavucontrol|blueman-manager|nm-connection-editor)$
+windowrule = float on, match:class ^(org.pulseaudio.pavucontrol|blueman-manager|nm-connection-editor)$
+windowrule = size 1200 800, match:class ^(org.pulseaudio.pavucontrol|blueman-manager|nm-connection-editor)$
 
 ''
