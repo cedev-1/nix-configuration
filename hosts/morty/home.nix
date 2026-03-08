@@ -69,6 +69,7 @@
     nextcloud-client
     rustdesk
     opencode
+    claude-code
   ];
 
   imports = [

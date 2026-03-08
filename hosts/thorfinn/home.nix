@@ -71,6 +71,7 @@
 
   home.sessionVariables = {
     TERMINAL = "kitty";
+    BROWSER = "firefox";
   };
 
   gtk.enable = true;
@@ -108,6 +109,7 @@
     nextcloud-client
     opencode
     gemini-cli
+    claude-code
   ];
 
   hyprland.isLaptop = true;

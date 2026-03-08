@@ -20,9 +20,11 @@
     };
 
     clevo-xsm-wmi.url = "github:cedev-1/clevo-xsm-wmi-nix";
+
+    claude-code.url = "github:sadjow/claude-code-nix";
   };
 
-  outputs = { nixpkgs, home-manager, opencode, caelestia-shell, clevo-xsm-wmi, ... }: {
+  outputs = { nixpkgs, home-manager, opencode, caelestia-shell, clevo-xsm-wmi, claude-code, ... }: {
     nixosConfigurations = {
       cedev-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -30,7 +32,7 @@
           ./hosts/morty/configuration.nix
           home-manager.nixosModules.home-manager
           {
-            nixpkgs.overlays = [ opencode.overlays.default ];
+            nixpkgs.overlays = [ opencode.overlays.default claude-code.overlays.default ];
             home-manager.users.cedev = import ./hosts/morty/home.nix;
           }
         ];
@@ -42,6 +44,7 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = { inherit caelestia-shell; };
+            nixpkgs.overlays = [ claude-code.overlays.default ];
             home-manager.users.cedev = import ./hosts/thorfinn/home.nix;
           }
           ({ lib, ... }: {
