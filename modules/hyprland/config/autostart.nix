@@ -19,11 +19,7 @@ env = XDG_CURRENT_DESKTOP,Hyprland
 env = XCURSOR_SIZE,24
 env = HYPRCURSOR_SIZE,24
 
-${if !isLaptop then ''exec-once = bash -lc 'for i in {1..50}; do \
-  [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && \
-  [ -S "/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock" ] && break; \
-  sleep 0.1; \
-done; waybar'' else ""}
+${if !isLaptop then "exec-once = waybar" else ""}
 
 #####################
 ### LOOK AND FEEL ###
