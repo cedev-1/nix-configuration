@@ -2,6 +2,8 @@
 
 This is my personal Nix/ NixOS configuration for my desktop PC with dual screens, my laptop, and soon for my Mac (work in progress).
 
+### Desktop - Morty
+
 <img width="1920" height="1079" alt="image" src="https://github.com/user-attachments/assets/3b25d487-4181-4483-bab0-e29300e51cc6" />
 
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/0b6f396c-830c-47a3-9cd5-5bb103edc1d0" />
@@ -9,5 +11,9 @@ This is my personal Nix/ NixOS configuration for my desktop PC with dual screens
 <img width="1919" height="1080" alt="image" src="https://github.com/user-attachments/assets/d52a0678-244f-4bba-82d2-ac11adea8fbc" />
 
 <img width="1919" height="1081" alt="image" src="https://github.com/user-attachments/assets/498d3d8f-cb71-4df2-bc0a-834eedbf9d07" />
+
+### Laptop - Thorfinn
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/afb9b684-1e7e-4947-a725-f13b9fb12e54" />
 
 I use Hyprland as a window manager, Kitty as a terminal, Zsh as a shell with p10k, and Firefox as a web browser.
