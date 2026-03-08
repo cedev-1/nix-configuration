@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, clevo-xsm-wmi-pkg, ... }:
 
 {
   imports =
@@ -30,17 +30,8 @@
   services.xserver.enable = true;
   services.desktopManager.plasma6.enable = false;
   
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.displayManager.lightdm.background = ../../modules/backgrounds/wall.png;
-  services.xserver.displayManager.lightdm.greeters.gtk = {
-    theme.name = "Adwaita-dark";
-    indicators = [];
-    extraConfig = ''
-      show-clock = false
-      show-indicators = 
-      hide-user-image = true
-    '';
-  };
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.defaultSession = "hyprland";
 
   environment.systemPackages = with pkgs; [
     qt6.qtbase
@@ -84,12 +75,38 @@
     };
   };
 
+  hardware.tuxedo-drivers.enable = true;
+
+  boot.extraModulePackages = [ 
+    config.boot.kernelPackages.tuxedo-keyboard 
+    clevo-xsm-wmi-pkg
+  ];
+  boot.kernelModules = [ "clevo-xsm-wmi" "tuxedo_keyboard" "i2c-dev" "i2c-i801" "i2c-piix4" ];
+
+  services.udev.packages = [ pkgs.openrgb ];
+  services.udev.extraRules = ''
+    SUBSYSTEM=="leds", KERNEL=="rgb:kbd_backlight", OWNER="root", GROUP="input", MODE="0664", TAG+="uaccess"
+  '';
+
+  systemd.services.keyboard-rgb = {
+    description = "Keyboard RGB permissions and defaults";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "systemd-modules-load.service" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "${pkgs.bash}/bin/bash -c 'sleep 2; chmod 666 /sys/class/leds/rgb:kbd_backlight/brightness 2>/dev/null; chmod 666 /sys/class/leds/rgb:kbd_backlight/multi_intensity 2>/dev/null; echo 100 > /sys/class/leds/rgb:kbd_backlight/brightness 2>/dev/null; echo 255 0 255 > /sys/class/leds/rgb:kbd_backlight/multi_intensity 2>/dev/null'";
+    };
+  };
+
+  hardware.i2c.enable = true;
+
   services.blueman.enable = true;
   
   users.users.cedev = {
     isNormalUser = true;
     description = "cedev";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "input" "i2c" ];
     shell = pkgs.zsh;
   };
 

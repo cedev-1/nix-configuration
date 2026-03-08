@@ -95,7 +95,7 @@
     grim
     slurp
     wl-clipboard
-    neofetch
+    fastfetch
     sway
     wlogout
     kitty
@@ -107,6 +107,7 @@
     vivaldi
     nextcloud-client
     opencode
+    gemini-cli
   ];
 
   hyprland.isLaptop = true;

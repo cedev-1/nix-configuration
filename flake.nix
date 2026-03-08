@@ -18,9 +18,11 @@
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    clevo-xsm-wmi.url = "github:Culturae-org/clevo-xsm-wmi-nix";
   };
 
-  outputs = { nixpkgs, home-manager, opencode, caelestia-shell, ... }: {
+  outputs = { nixpkgs, home-manager, opencode, caelestia-shell, clevo-xsm-wmi, ... }: {
     nixosConfigurations = {
       cedev-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -42,6 +44,11 @@
             home-manager.extraSpecialArgs = { inherit caelestia-shell; };
             home-manager.users.cedev = import ./hosts/thorfinn/home.nix;
           }
+          ({ lib, ... }: {
+            _module.args = {
+              clevo-xsm-wmi-pkg = clevo-xsm-wmi.packages.x86_64-linux.default;
+            };
+          })
         ];
       };
     };
