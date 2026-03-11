@@ -30,6 +30,14 @@
         position = "bottom-right";
         scale = 1.0;
       };
+
+      background.visualiser = {
+        enabled = true;
+        autoHide = true;
+        blur = false;
+        rounding = 1;
+        spacing = 1;
+      };
       
       general.battery.warnLevels = [
         {
